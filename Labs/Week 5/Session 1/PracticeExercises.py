@@ -298,3 +298,165 @@ if weighted_average >= 60:
     print("\nPASS - Course requirements met")
 else:
     print("\nFAIL - Must retake course")
+'''
+Practice 4_a
+'''
+# Practice: Fix all indentation errors
+# Each line should be properly indented
+score = 85
+# Fix this code:
+print("Checking your grade...")
+if score >= 90:
+    print("You got an A!") # FIX: Add indentation
+    print("Excellent work!") # FIX: Add indentation
+else:
+    print("Not an A") # FIX: Should be 4 spaces, not 2
+if score >= 80: # FIX: Too much indentation
+    print("You got a B!")
+    print("Good job!")
+# Fix this code:
+age = 16
+if age >= 16:
+    print("You can drive")
+if age >= 18:
+    print("You can vote") # FIX: Add indentation
+else:
+    print("Too young to drive") # FIX: Too much indentation
+'''
+Practice 4_b
+'''
+# Practice: Create a grade and attendance checker
+# Use proper indentation for nested conditions
+grade = 75
+attendance = 85
+extra_credit = True
+print("=== Student Evaluation ===")
+print(f"Grade: {grade}")
+print(f"Attendance: {attendance}%")
+print(f"Extra credit: {extra_credit}")
+# TODO: Create this structure with proper indentation:
+# 1. If grade >= 60 (passing)
+# - Print "Passing grade"
+# - If attendance >= 80
+# * Print "Good attendance"
+# * If extra_credit is True
+# > Add 5 to grade
+# > Print new grade
+# - Else (attendance < 80)
+# * Print "Attendance needs improvement"
+# 2. Else (grade < 60)
+# - Print "Failing grade"
+# - Print "Must retake course"
+# Start your code here:
+if grade >= 60:
+# Add your code with proper indentation
+    print("Passing grade")
+    if attendance >= 80:
+        print("Good attendance")
+        if extra_credit:
+            grade = grade + 5
+            print(f"New grade after extra credit: {grade}")
+    else:
+        print("Attendance needs improvement")
+else:
+    print("Failing grade")
+    print("Must retake course")
+print("\n=== End of Evaluation ===")
+'''
+Practice 4_c
+'''
+# Practice 3: Game character action system
+# Create a complex nested structure with proper indentation
+# Character stats
+health = 75
+mana = 30
+enemy_distance = 5
+has_sword = True
+has_spell = True
+is_poisoned = False
+print("=== RPG Combat System ===")
+print(f"Health: {health}/100")
+print(f"Mana: {mana}/100")
+print(f"Enemy distance: {enemy_distance} meters")
+print(f"Equipment: Sword={has_sword}, Spell={has_spell}")
+print(f"Status: Poisoned={is_poisoned}")
+print("\n--- Determining Action ---")
+# TODO: Implement this decision tree with proper indentation:
+#
+# If health > 30:
+# If enemy_distance <= 2 (close range):
+# If has_sword:
+# Attack with sword
+# Else:
+# If health > 70:
+# Attack with fists
+# Else:
+# Defensive stance
+# Else if enemy_distance <= 10 (medium range):
+# If has_spell and mana >= 20:
+# Cast fireball
+# Reduce mana by 20
+# Else:
+# If has_sword:
+# Charge forward
+# Else:
+# Keep distance
+# Else (long range):
+# If is_poisoned:
+# Use antidote
+# Else:
+# If mana < 50:
+# Meditate to restore mana
+# Else:
+# Move closer
+# Else (health <= 30):
+# If has_spell and mana >= 50:
+# Cast healing spell
+# Else:
+# If enemy_distance > 5:
+# Retreat to safety
+# Else:
+# Last stand attack
+# Implement the decision tree here:
+if health > 30:
+    print("Status: Combat ready")
+    if enemy_distance <= 2:
+        print(" Range: Close combat")
+# Add your code here
+        if has_sword:
+            print("Action: Attack with sword!")
+        else:
+            if health > 70:
+                print("Action: Attack with fists!")
+            else:
+                print("Action: Defensive stance")
+    elif enemy_distance <= 10:
+        print(" Range: Medium distance")
+        if has_spell and mana >= 20:
+            print("Action: Cast fireball!")
+            mana = mana - 20
+            print(f" Mana left: {mana}")
+        else:
+            if has_sword:
+                print("Action: Charge forward!")
+            else:
+                print("Action: Keep distance")
+    else:
+        print(" Range: Long distance")
+        if is_poisoned:
+            print("Action: Use antidote!")
+        else:
+            if mana < 50:
+                print("Action: Meditate to restore mana")
+            else:
+                print("Action: Move closer to enemy")
+else:
+    print("Status: Low health!")
+    if has_spell and mana >= 50:
+        print("Action: Cast healing spell!")
+    else:
+        if enemy_distance > 5:
+            print("Action: Retreat to safety")
+        else:
+            print("Action: Last stand attack!")
+print("\n=== End Combat Turn ===")
