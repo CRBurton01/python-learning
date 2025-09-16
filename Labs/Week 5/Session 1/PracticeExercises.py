@@ -460,3 +460,171 @@ else:
         else:
             print("Action: Last stand attack!")
 print("\n=== End Combat Turn ===")
+'''
+Practice 5_a
+'''
+# Practice: Complete the comparisons
+# Fill in the correct operator to make each statement True
+x = 15
+y = 20
+z = 15
+# Make these True by adding the correct operator
+print("=== Make These True ===")
+print(f"x == z = {x == z}") # Should be True (they're equal)
+print(f"x < y = {x < y}") # Should be True (x is less)
+print(f"y > x = {y > x}") # Should be True (y is greater)
+print(f"x != y = {x != y}") # Should be True (they're different)
+print(f"x >= 15 = {x >= 15}") # Should be True (x is 15 or more)
+print(f"y <= 20 = {y <= 20}") # Should be True (y is 20 or less)
+# Now create your own comparisons
+my_age = 18 # Set your age
+voting_age = 18
+driving_age = 16
+retirement_age = 65
+print("\n=== Age Comparisons ===")
+# Write comparisons to check:
+can_vote = my_age >= voting_age # Can you vote?
+can_drive = my_age >= driving_age # Can you drive?
+is_retired = my_age >= retirement_age # Are you retired?
+print(f"Can vote: {can_vote}")
+print(f"Can drive: {can_drive}")
+print(f"Is retired: {is_retired}")
+'''
+Practice 5_b
+'''
+# Practice: Range validation system
+# Use chained comparisons to validate different ranges
+# Test values
+test_score = 78
+body_temp = 98.6
+ph_level = 7.2
+humidity = 45
+print("=== Range Validator ===")
+# TODO: Check if values are in valid ranges using chained comparisons
+# Test score should be between 0 and 100
+valid_score = 0 <= test_score <= 100
+if valid_score:
+    print(f"Test score {test_score} is valid")
+# Check grade range using chained comparisons
+    if score >= 90: # 90-100
+        print(" Grade: A")
+    elif score >= 80: # 80-89
+        print(" Grade: B")
+    elif score >= 70: # 70-79
+        print(" Grade: C")
+    elif score >= 60: # 60-69
+        print(" Grade: D")
+    else:
+        print(" Grade: F")
+else:
+    print(f"Invalid test score: {test_score}")
+# Body temperature: normal is 97.0 - 99.0
+normal_temp = 97.0 <= body_temp <= 99.0
+if normal_temp:
+    print(f"Temperature {body_temp}°F is normal")
+else:
+    if body_temp < 97.0:
+        print(f" Low temperature: {body_temp}°F")
+    else:
+        print(f" Fever detected: {body_temp}°F")
+# pH level: neutral is 6.5 - 7.5
+neutral_ph = 6.5 <= ph_level <= 7.5
+if neutral_ph:
+    print(f"pH {ph_level} is neutral")
+else:
+    if ph_level < 6.5:
+        print(f"Acidic: pH {ph_level}")
+    else:
+        print(f"Basic: pH {ph_level}")
+# Humidity: comfortable is 30-50%
+comfortable_humidity = humidity >= 30 and humidity <= 50
+if comfortable_humidity:
+    print(f"Humidity {humidity}% is comfortable: {comfortable_humidity}")
+else:
+    if humidity < 30:
+        print(f"Too dry: {humidity}%")
+    else:
+        print(f"Too humid: {humidity}%")
+'''
+Practice 5_c
+'''
+# Practice: Smart thermostat controller
+# Use all comparison operators to control home temperature
+# System inputs
+current_temp = 68
+target_temp = 72
+outside_temp = 45
+current_hour = 14 # 2 PM
+is_home = True
+is_eco_mode = True
+last_adjustment_min_ago = 25
+print("=== Smart Thermostat System ===")
+print(f"Current: {current_temp}°F")
+print(f"Target: {target_temp}°F")
+print(f"Outside: {outside_temp}°F")
+print(f"Time: {current_hour}:00")
+print(f"Eco mode: {is_eco_mode}")
+print(f"Someone home: {is_home}")
+print(f"Last adjustment: {last_adjustment_min_ago} min ago")
+# TODO: Implement smart controls using comparisons
+# Basic temperature control
+temp_difference = target_temp - current_temp
+print(f"\nTemperature difference: {temp_difference}°F")
+# Decision logic
+action = "IDLE"
+energy_saving = False
+# Rule 1: Emergency heating if too cold
+if current_temp < 50:
+    action = "EMERGENCY_HEAT"
+    print("Emergency: Temperature critically low!")
+# Rule 2: Don't adjust if recent change (within 15 minutes)
+elif last_adjustment_min_ago < 15:
+    action = "WAIT"
+    print("Waiting: Recent adjustment in progress")
+# Rule 3: Eco mode adjustments
+elif is_eco_mode:
+# In eco mode, allow wider temperature range
+    eco_min = target_temp - 3
+    eco_max = target_temp + 3
+    if eco_min < current_temp > eco_max: # Check if temp is in eco range
+        action = "ECO_IDLE"
+        energy_saving = True
+        print("💪 Eco mode: Temperature acceptable")
+    elif current_temp < eco_min:
+        action = "ECO_HEAT"
+        print("💪 Eco mode: Gentle heating")
+    else:
+        action = "ECO_COOL"
+        print("💪 Eco mode: Gentle cooling")
+# Rule 4: Normal operation
+else:
+# Check if adjustment needed (tolerance of 1 degree)
+    if current_temp < target_temp:# Too cold
+        if outside_temp < 32: # It's freezing outside
+            action = "HEAT_HIGH"
+            print("💪 Heating: High power (cold outside)")
+        else:
+            action = "HEAT_NORMAL"
+            print("💪 Heating: Normal power")
+    elif current_temp > target_temp: # Too warm
+        if outside_temp > 85: # It's hot outside
+            action = "COOL_HIGH"
+            print("Cooling: High power (hot outside)")
+        else:
+            action = "COOL_NORMAL"
+            print("Cooling: Normal power")
+    else: # Just right
+        action = "IDLE"
+        print("Temperature perfect!")
+# Night mode check (10 PM to 6 AM)
+is_night = current_hour > 22 or current_hour < 6 # Use chained comparison
+if is_night and action != "IDLE":
+    print("💪 Night mode: Reducing fan speed")
+# Away mode check
+if not is_home and action not in ["IDLE", "ECO_IDLE"]:
+    print("💪 Nobody home: Switching to eco mode")
+    energy_saving = True
+# Final status
+print(f"\n=== System Action: {action} ===")
+if energy_saving:
+    print("💪 Energy saving mode active")
