@@ -1,5 +1,6 @@
 # PROBLEM 1 - Temperature Converter & Weather Advisor
 print("=== Temperature Converter & Weather Advisor ===")
+advice = ""
 # Get temperature from user
 temp = float(input("Enter temperature: "))
 # Get the scale (C or F)
