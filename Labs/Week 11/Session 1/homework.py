@@ -80,7 +80,7 @@ def PatternDetective():
     print(f"Final list of numbers (new length {len(numbers)}):")
     print(numbers)
     
-# Main program loop (need to implement other problems)
+# Main program loop
 def main():
     running = True
     while running:
