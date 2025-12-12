@@ -1,0 +1,7 @@
+Homework 2: 100 out of 100
+    Line 46: In Python, we typically use all upper case identifiers for constants
+Homework 4: 125 out of 100
+Homework 5: 130 out of 110
+Homework 7: 75 out of 75
+Homework 8: 80 out of 80
+Homework 9: 100 out of 100
